@@ -17,6 +17,19 @@ const slides = [
 	}
 ]
 
+const mySpan = document.getElementsByClassName('dot');
+console.log(mySpan);
+
+const dots = document.querySelector('.dots');
+for (let index=0; index<slides.length; index++){
+	const span = document.createElement('span');
+	span.classList.add('dot');
+	if(index==0){
+		span.classList.add('dot_selected');
+	}
+	dots.appendChild(span);
+};
+
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
 tagLine = document.querySelector('.texte');
@@ -29,8 +42,9 @@ arrowLeft.addEventListener("click", function(){
 	else {
 		index--
 	};
+	mySpan[index].classList.add("dot_selected");
 	document.querySelector(".banner-img").src="assets/images/slideshow/"+slides[index].image;
-	document.querySelector(".texte").src=slides[index].tagLine;
+	document.querySelector(".texte").innerHTML=slides[index].tagLine;
 });
 
 arrowRight.addEventListener ("click", function(){
@@ -40,30 +54,11 @@ arrowRight.addEventListener ("click", function(){
 	else {
 		index++
 	};
+	mySpan[index].classList.add("dot_selected");
 	document.querySelector(".banner-img").src="assets/images/slideshow/"+slides[index].image;
-	document.querySelector(".texte").src=slides[index].tagLine;
+	document.querySelector(".texte").innerHTML=slides[index].tagLine;
 });
 console.log(slides);
-
-const dots = document.querySelector('.dots');
-const dotPoints = document.querySelector('.dot');
-const dotSelected = document.querySelector('.dot_selected');
-dots = document.createElement("span");
-dots.appendChild(dotPoints);
-dots.appendChild(dotSelected);
-
-dotPoints = document.addEventListener('click', function(){
-	for(index=slides.length-1; index>=1; dotPoints++);
-});
-
-dotSelected = document.activeElement("slides", function(){
-	if(index==0){
-		true
-	}
-	else{
-		false
-	}
-});
 
 
 
