@@ -36,6 +36,7 @@ tagLine = document.querySelector('.texte');
 let index = 0;
 
 arrowLeft.addEventListener("click", function(){
+	mySpan[index].classList.remove('dot_selected');
 	if(index==0) {
 		index=slides.length-1
 	}
@@ -48,6 +49,7 @@ arrowLeft.addEventListener("click", function(){
 });
 
 arrowRight.addEventListener ("click", function(){
+	mySpan[index].classList.remove('dot_selected');
 	if(index==slides.length-1) {
 		index=0
 	}
@@ -59,8 +61,6 @@ arrowRight.addEventListener ("click", function(){
 	document.querySelector(".texte").innerHTML=slides[index].tagLine;
 });
 console.log(slides);
-
-
 
 
 
